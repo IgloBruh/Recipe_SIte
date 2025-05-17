@@ -1,0 +1,197 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Профиль пользователя{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="profile-header">
+        <div class="row">
+            <div class="col-md-3 text-center">
+                {% if user_profile.profile_picture %}
+                    <img src="{{ user_profile.profile_picture.url }}" class="profile-avatar" alt="{{ user_profile.username }}">
+                {% else %}
+                    <div class="profile-avatar bg-primary text-white d-flex align-items-center justify-content-center mx-auto">
+                        <span class="display-4">{{ user_profile.username|first|upper }}</span>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-9">
+                <h1>{{ user_profile.username }}</h1>
+                <p class="text-muted">Участник с {{ user_profile.registration_date|date:"d.m.Y" }}</p>
+                {% if user_profile.bio %}
+                    <p>{{ user_profile.bio }}</p>
+                {% endif %}
+                <div class="d-flex">
+                    <div class="me-4">
+                        <h5>{{ user_profile.recipes.count }}</h5>
+                        <small class="text-muted">Рецептов</small>
+                    </div>
+                    <div class="me-4">
+                        <h5>{{ user_profile.reviews.count }}</h5>
+                        <small class="text-muted">Отзывов</small>
+                    </div>
+                    <div>
+                        <h5>{{ user_profile.favorites.count }}</h5>
+                        <small class="text-muted">В избранном</small>
+                    </div>
+                </div>
+                {% if user.id == user_profile.id %}
+                    <div class="mt-3">
+                        <a href="/profile/edit" class="btn btn-outline-primary">Редактировать профиль</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs mb-4" id="profileTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="recipes-tab" data-bs-toggle="tab" data-bs-target="#recipes" type="button" role="tab" aria-controls="recipes" aria-selected="true">Рецепты</button>
+        </li>
+        {% if user.id == user_profile.id %}
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="favorites-tab" data-bs-toggle="tab" data-bs-target="#favorites" type="button" role="tab" aria-controls="favorites" aria-selected="false">Избранное</button>
+        </li>
+        {% endif %}
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Отзывы</button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="profileTabsContent">
+        <!-- Рецепты пользователя -->
+        <div class="tab-pane fade show active" id="recipes" role="tabpanel" aria-labelledby="recipes-tab">
+            <div class="row">
+                {% for recipe in user_recipes %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card recipe-card h-100">
+                            {% if recipe.image %}
+                                <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
+                            {% else %}
+                                <img src="{% static 'img/default-recipe.jpg' %}" class="card-img-top" alt="{{ recipe.title }}">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ recipe.title }}</h5>
+                                <div class="recipe-meta mb-2">
+                                    <span class="me-2"><i class="fas fa-clock"></i> {{ recipe.cooking_time }} мин.</span>
+                                    <span class="me-2"><i class="fas fa-signal"></i> {{ recipe.get_difficulty_display }}</span>
+                                    <span><i class="fas fa-star text-warning"></i> {{ recipe.average_rating|floatformat:1 }}</span>
+                                </div>
+                                <p class="card-text">{{ recipe.ingredients|truncatewords:10 }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="/recipes/{{ recipe.id }}" class="btn btn-sm btn-primary">Подробнее</a>
+                                    {% if user.id == user_profile.id %}
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton{{ recipe.id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ recipe.id }}">
+                                                <li><a class="dropdown-item" href="/recipes/{{ recipe.id }}/edit">Редактировать</a></li>
+                                                <li><a class="dropdown-item text-danger" href="/recipes/{{ recipe.id }}/delete">Удалить</a></li>
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="col-12">
+                        <div class="alert alert-info">
+                            {% if user.id == user_profile.id %}
+                                У вас пока нет рецептов. <a href="/recipes/create">Создайте свой первый рецепт!</a>
+                            {% else %}
+                                У пользователя пока нет рецептов.
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Избранные рецепты -->
+        {% if user.id == user_profile.id %}
+        <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
+            <div class="row">
+                {% for favorite in user_favorites %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card recipe-card h-100">
+                            {% if favorite.recipe.image %}
+                                <img src="{{ favorite.recipe.image.url }}" class="card-img-top" alt="{{ favorite.recipe.title }}">
+                            {% else %}
+                                <img src="{% static 'img/default-recipe.jpg' %}" class="card-img-top" alt="{{ favorite.recipe.title }}">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ favorite.recipe.title }}</h5>
+                                <div class="recipe-meta mb-2">
+                                    <span class="me-2"><i class="fas fa-clock"></i> {{ favorite.recipe.cooking_time }} мин.</span>
+                                    <span class="me-2"><i class="fas fa-signal"></i> {{ favorite.recipe.get_difficulty_display }}</span>
+                                    <span><i class="fas fa-star text-warning"></i> {{ favorite.recipe.average_rating|floatformat:1 }}</span>
+                                </div>
+                                <p class="card-text">{{ favorite.recipe.ingredients|truncatewords:10 }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="/recipes/{{ favorite.recipe.id }}" class="btn btn-sm btn-primary">Подробнее</a>
+                                    <button class="btn btn-sm btn-danger favorite-btn active" data-recipe-id="{{ favorite.recipe.id }}">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <small>Автор: {{ favorite.recipe.author.username }}</small>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="col-12">
+                        <div class="alert alert-info">
+                            У вас пока нет избранных рецептов. Добавьте рецепты в избранное, нажав на иконку сердечка.
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Отзывы пользователя -->
+        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+            {% for review in user_reviews %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title">
+                                <a href="/recipes/{{ review.recipe.id }}">{{ review.recipe.title }}</a>
+                            </h5>
+                            <div class="rating">
+                                {% for i in "12345" %}
+                                    {% if forloop.counter <= review.rating %}
+                                        <i class="fas fa-star"></i>
+                                    {% else %}
+                                        <i class="far fa-star"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <p class="card-text">{{ review.comment }}</p>
+                        <div class="text-muted">
+                            <small>{{ review.created_at|date:"d.m.Y" }}</small>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="alert alert-info">
+                    {% if user.id == user_profile.id %}
+                        Вы пока не оставили ни одного отзыва.
+                    {% else %}
+                        Пользователь пока не оставил ни одного отзыва.
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+{% endblock %}

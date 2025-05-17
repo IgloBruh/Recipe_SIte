@@ -1,0 +1,159 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Все рецепты{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Фильтры -->
+            <div class="filter-sidebar mb-4">
+                <h4>Фильтры</h4>
+                <form id="filter-form" method="get">
+                    <div class="mb-3">
+                        <label for="search" class="form-label">Поиск по названию</label>
+                        <input type="text" class="form-control" id="search" name="search" value="{{ request.GET.search }}">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Сложность</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="difficulty" id="difficulty_all" value="" {% if not request.GET.difficulty %}checked{% endif %}>
+                            <label class="form-check-label" for="difficulty_all">Все</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="difficulty" id="difficulty_easy" value="easy" {% if request.GET.difficulty == 'easy' %}checked{% endif %}>
+                            <label class="form-check-label" for="difficulty_easy">Легкий</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="difficulty" id="difficulty_medium" value="medium" {% if request.GET.difficulty == 'medium' %}checked{% endif %}>
+                            <label class="form-check-label" for="difficulty_medium">Средний</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="difficulty" id="difficulty_hard" value="hard" {% if request.GET.difficulty == 'hard' %}checked{% endif %}>
+                            <label class="form-check-label" for="difficulty_hard">Сложный</label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Время приготовления</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="number" class="form-control" name="min_time" placeholder="От" value="{{ request.GET.min_time }}">
+                            </div>
+                            <div class="col-6">
+                                <input type="number" class="form-control" name="max_time" placeholder="До" value="{{ request.GET.max_time }}">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Категория</label>
+                        <select class="form-select" name="category">
+                            <option value="">Все категории</option>
+                            <option value="main" {% if request.GET.category == 'main' %}selected{% endif %}>Основные блюда</option>
+                            <option value="dessert" {% if request.GET.category == 'dessert' %}selected{% endif %}>Десерты</option>
+                            <option value="bakery" {% if request.GET.category == 'bakery' %}selected{% endif %}>Выпечка</option>
+                            <option value="salad" {% if request.GET.category == 'salad' %}selected{% endif %}>Салаты</option>
+                            <option value="soup" {% if request.GET.category == 'soup' %}selected{% endif %}>Супы</option>
+                            <option value="breakfast" {% if request.GET.category == 'breakfast' %}selected{% endif %}>Завтраки</option>
+                            <option value="snack" {% if request.GET.category == 'snack' %}selected{% endif %}>Закуски</option>
+                            <option value="drink" {% if request.GET.category == 'drink' %}selected{% endif %}>Напитки</option>
+                        </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Применить фильтры</button>
+                        <button type="button" id="reset-filters" class="btn btn-outline-secondary">Сбросить фильтры</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="col-md-9">
+            <h1 class="mb-4">Все рецепты</h1>
+            
+            <div class="row">
+                {% for recipe in recipes %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card recipe-card h-100">
+                            {% if recipe.image %}
+                                <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
+                            {% else %}
+                                <img src="{% static 'img/default-recipe.jpg' %}" class="card-img-top" alt="{{ recipe.title }}">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ recipe.title }}</h5>
+                                <div class="recipe-meta mb-2">
+                                    <span class="me-2"><i class="fas fa-clock"></i> {{ recipe.cooking_time }} мин.</span>
+                                    <span class="me-2"><i class="fas fa-signal"></i> {{ recipe.get_difficulty_display }}</span>
+                                    <span><i class="fas fa-star text-warning"></i> {{ recipe.average_rating|floatformat:1 }}</span>
+                                </div>
+                                <p class="card-text">{{ recipe.ingredients|truncatewords:10 }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="/recipes/{{ recipe.id }}" class="btn btn-sm btn-primary">Подробнее</a>
+                                    <small class="text-muted">{{ recipe.author.username }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="col-12">
+                        <div class="alert alert-info">
+                            Рецепты не найдены. Попробуйте изменить параметры поиска или <a href="/recipes/create">создайте свой рецепт</a>.
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Пагинация -->
+            {% if is_paginated %}
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page=1{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}" aria-label="First">
+                                    <span aria-hidden="true">&laquo;&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                                <li class="page-item active"><a class="page-link" href="#">{{ num }}</a></li>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ num }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ num }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}" aria-label="Last">
+                                    <span aria-hidden="true">&raquo;&raquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+{% endblock %}

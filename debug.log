@@ -1,0 +1,415 @@
+INFO 2025-05-17 14:30:36,223 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:33:41,387 autoreload Watching for file changes with StatReloader
+WARNING 2025-05-17 14:33:46,264 log Not Found: /
+WARNING 2025-05-17 14:33:46,264 basehttp "GET / HTTP/1.1" 404 3125
+WARNING 2025-05-17 14:33:46,323 log Not Found: /favicon.ico
+WARNING 2025-05-17 14:33:46,323 basehttp "GET /favicon.ico HTTP/1.1" 404 3176
+INFO 2025-05-17 14:34:41,152 autoreload Z:\ôûâ\recipe_platform\urls.py changed, reloading.
+INFO 2025-05-17 14:34:41,886 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:35:04,770 autoreload Z:\ôûâ\recipe_platform\settings.py changed, reloading.
+INFO 2025-05-17 14:35:05,498 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:35:13,409 autoreload Z:\ôûâ\recipe_platform\settings.py changed, reloading.
+INFO 2025-05-17 14:35:14,161 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:35:42,129 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:35:43,849 basehttp "GET / HTTP/1.1" 200 8176
+INFO 2025-05-17 14:35:43,924 basehttp "GET /static/js/main.js HTTP/1.1" 200 8218
+INFO 2025-05-17 14:35:43,924 basehttp "GET /static/css/style.css HTTP/1.1" 200 3764
+WARNING 2025-05-17 14:35:44,095 log Not Found: /favicon.ico
+INFO 2025-05-17 14:35:44,096 basehttp - Broken pipe from ('127.0.0.1', 55395)
+INFO 2025-05-17 14:35:55,834 basehttp "GET /register HTTP/1.1" 301 0
+INFO 2025-05-17 14:35:55,842 basehttp "GET /register/ HTTP/1.1" 200 7410
+INFO 2025-05-17 14:36:11,539 basehttp "POST /register/ HTTP/1.1" 200 7728
+INFO 2025-05-17 14:36:32,433 basehttp "POST /register/ HTTP/1.1" 200 7728
+INFO 2025-05-17 14:36:43,115 basehttp "GET /register/ HTTP/1.1" 200 7410
+INFO 2025-05-17 14:37:08,077 basehttp "POST /register/ HTTP/1.1" 200 7728
+INFO 2025-05-17 14:37:13,418 basehttp "GET /recipes HTTP/1.1" 301 0
+ERROR 2025-05-17 14:37:13,477 log Internal Server Error: /recipes/
+Traceback (most recent call last):
+  File "Z:\ôûâ\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: recipes/list.html, recipes/recipe_list.html
+ERROR 2025-05-17 14:37:13,480 basehttp "GET /recipes/ HTTP/1.1" 500 86041
+INFO 2025-05-17 14:37:19,608 basehttp "GET /recipes?search= HTTP/1.1" 301 0
+ERROR 2025-05-17 14:37:19,640 log Internal Server Error: /recipes/
+Traceback (most recent call last):
+  File "Z:\ôûâ\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: recipes/list.html, recipes/recipe_list.html
+ERROR 2025-05-17 14:37:19,642 basehttp "GET /recipes/?search= HTTP/1.1" 500 86391
+INFO 2025-05-17 14:37:30,735 basehttp "GET / HTTP/1.1" 200 8176
+INFO 2025-05-17 14:37:30,769 basehttp "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-05-17 14:37:31,760 basehttp "GET / HTTP/1.1" 200 8176
+WARNING 2025-05-17 14:37:31,827 log Not Found: /favicon.ico
+INFO 2025-05-17 14:37:31,828 basehttp - Broken pipe from ('127.0.0.1', 55466)
+ERROR 2025-05-17 14:37:32,928 log Internal Server Error: /recipes/
+Traceback (most recent call last):
+  File "Z:\ôûâ\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: recipes/list.html, recipes/recipe_list.html
+ERROR 2025-05-17 14:37:32,930 basehttp "GET /recipes/ HTTP/1.1" 500 86032
+INFO 2025-05-17 14:37:37,008 basehttp "GET /recipes?search=asd HTTP/1.1" 301 0
+ERROR 2025-05-17 14:37:37,033 log Internal Server Error: /recipes/
+Traceback (most recent call last):
+  File "Z:\ôûâ\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: recipes/list.html, recipes/recipe_list.html
+ERROR 2025-05-17 14:37:37,035 basehttp "GET /recipes/?search=asd HTTP/1.1" 500 86400
+INFO 2025-05-17 14:37:39,741 basehttp "GET /login HTTP/1.1" 301 0
+INFO 2025-05-17 14:37:39,748 basehttp "GET /login/ HTTP/1.1" 200 6094
+INFO 2025-05-17 14:37:39,785 basehttp "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-05-17 14:37:45,138 basehttp "POST /login/ HTTP/1.1" 302 0
+WARNING 2025-05-17 14:37:45,143 log Not Found: /accounts/profile/
+WARNING 2025-05-17 14:37:45,143 basehttp "GET /accounts/profile/ HTTP/1.1" 404 5638
+INFO 2025-05-17 14:38:31,463 basehttp "GET /login/ HTTP/1.1" 302 0
+INFO 2025-05-17 14:38:33,857 basehttp "GET /register/ HTTP/1.1" 200 8312
+INFO 2025-05-17 14:38:39,179 basehttp "GET /profile HTTP/1.1" 301 0
+INFO 2025-05-17 14:38:39,201 basehttp "GET /profile/ HTTP/1.1" 200 8637
+INFO 2025-05-17 14:38:40,863 basehttp "GET /recipes/create HTTP/1.1" 301 0
+INFO 2025-05-17 14:38:40,873 basehttp "GET /recipes/create/ HTTP/1.1" 200 13040
+INFO 2025-05-17 14:38:55,329 basehttp "POST /recipes/create/ HTTP/1.1" 302 0
+ERROR 2025-05-17 14:38:55,356 log Internal Server Error: /recipes/
+Traceback (most recent call last):
+  File "Z:\ôûâ\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: recipes/list.html, recipes/recipe_list.html
+ERROR 2025-05-17 14:38:55,359 basehttp "GET /recipes/ HTTP/1.1" 500 86488
+WARNING 2025-05-17 14:39:46,310 log Not Found: /api/swagger/
+WARNING 2025-05-17 14:39:46,311 basehttp "GET /api/swagger/ HTTP/1.1" 404 5623
+WARNING 2025-05-17 14:39:46,392 log Not Found: /favicon.ico
+WARNING 2025-05-17 14:39:46,393 basehttp "GET /favicon.ico HTTP/1.1" 404 5620
+WARNING 2025-05-17 14:39:52,406 log Not Found: /api/redoc/
+WARNING 2025-05-17 14:39:52,406 basehttp "GET /api/redoc/ HTTP/1.1" 404 5617
+INFO 2025-05-17 14:41:51,628 autoreload Z:\ôûâ\users\views_frontend.py changed, reloading.
+INFO 2025-05-17 14:41:52,150 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:41:55,695 autoreload Z:\ôûâ\users\views_frontend.py changed, reloading.
+INFO 2025-05-17 14:41:56,293 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:42:56,694 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:42:58,936 basehttp "GET / HTTP/1.1" 200 10741
+WARNING 2025-05-17 14:42:58,987 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:42:58,988 basehttp "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-05-17 14:42:58,988 basehttp "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-05-17 14:43:06,829 basehttp "GET /logout HTTP/1.1" 301 0
+WARNING 2025-05-17 14:43:06,838 base Method Not Allowed (GET): /logout/
+WARNING 2025-05-17 14:43:06,838 log Method Not Allowed: /logout/
+WARNING 2025-05-17 14:43:06,839 basehttp "GET /logout/ HTTP/1.1" 405 0
+WARNING 2025-05-17 14:43:08,738 base Method Not Allowed (GET): /logout/
+WARNING 2025-05-17 14:43:08,738 log Method Not Allowed: /logout/
+WARNING 2025-05-17 14:43:08,739 basehttp "GET /logout/ HTTP/1.1" 405 0
+WARNING 2025-05-17 14:43:09,449 base Method Not Allowed (GET): /logout/
+WARNING 2025-05-17 14:43:09,449 log Method Not Allowed: /logout/
+WARNING 2025-05-17 14:43:09,450 basehttp "GET /logout/ HTTP/1.1" 405 0
+WARNING 2025-05-17 14:43:10,026 base Method Not Allowed (GET): /logout/
+WARNING 2025-05-17 14:43:10,026 log Method Not Allowed: /logout/
+WARNING 2025-05-17 14:43:10,026 basehttp "GET /logout/ HTTP/1.1" 405 0
+INFO 2025-05-17 14:43:34,285 basehttp "GET / HTTP/1.1" 200 11261
+WARNING 2025-05-17 14:43:34,327 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+WARNING 2025-05-17 14:43:38,174 log Not Found: /favorites
+WARNING 2025-05-17 14:43:38,174 basehttp "GET /favorites HTTP/1.1" 404 5614
+INFO 2025-05-17 14:43:41,904 basehttp "GET /recipes/create/ HTTP/1.1" 200 13040
+WARNING 2025-05-17 14:43:53,129 log Not Found: /api
+WARNING 2025-05-17 14:43:53,129 basehttp "GET /api HTTP/1.1" 404 5596
+WARNING 2025-05-17 14:44:00,161 log Not Found: /api/users/
+WARNING 2025-05-17 14:44:00,162 basehttp "GET /api/users/ HTTP/1.1" 404 6554
+INFO 2025-05-17 14:44:25,244 basehttp "GET /swagger/ HTTP/1.1" 200 2257
+INFO 2025-05-17 14:44:25,424 basehttp "GET /static/drf-yasg/style.css HTTP/1.1" 200 1047
+INFO 2025-05-17 14:44:25,442 basehttp "GET /static/drf-yasg/swagger-ui-dist/swagger-ui.css HTTP/1.1" 200 145206
+INFO 2025-05-17 14:44:25,447 basehttp "GET /static/drf-yasg/swagger-ui-init.js HTTP/1.1" 200 15480
+INFO 2025-05-17 14:44:25,451 basehttp "GET /static/drf-yasg/insQ.min.js HTTP/1.1" 200 2093
+INFO 2025-05-17 14:44:25,461 basehttp "GET /static/drf-yasg/swagger-ui-dist/swagger-ui-bundle.js HTTP/1.1" 200 1046583
+INFO 2025-05-17 14:44:25,524 basehttp "GET /static/drf-yasg/immutable.min.js HTTP/1.1" 200 56904
+INFO 2025-05-17 14:44:25,603 basehttp "GET /static/drf-yasg/swagger-ui-dist/swagger-ui-standalone-preset.js HTTP/1.1" 200 322863
+INFO 2025-05-17 14:44:25,637 basehttp "GET /static/drf-yasg/swagger-ui-dist/favicon-32x32.png HTTP/1.1" 200 628
+INFO 2025-05-17 14:44:25,700 basehttp "GET /swagger/?format=openapi HTTP/1.1" 200 19715
+INFO 2025-05-17 14:45:30,795 basehttp "GET /recipes/ HTTP/1.1" 200 10155
+INFO 2025-05-17 14:45:30,828 basehttp "GET /static/js/main.js HTTP/1.1" 304 0
+WARNING 2025-05-17 14:45:30,831 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:45:32,884 basehttp "GET / HTTP/1.1" 200 10497
+INFO 2025-05-17 14:45:32,923 basehttp "GET /static/css/style.css HTTP/1.1" 304 0
+WARNING 2025-05-17 14:45:32,927 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:45:33,579 basehttp "GET / HTTP/1.1" 200 10497
+WARNING 2025-05-17 14:45:33,611 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:45:34,204 basehttp "GET /recipes/ HTTP/1.1" 200 10155
+WARNING 2025-05-17 14:45:34,237 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+WARNING 2025-05-17 14:45:36,248 base Method Not Allowed (GET): /logout/
+WARNING 2025-05-17 14:45:36,249 log Method Not Allowed: /logout/
+WARNING 2025-05-17 14:45:36,249 basehttp "GET /logout/ HTTP/1.1" 405 0
+INFO 2025-05-17 14:45:47,188 basehttp "GET / HTTP/1.1" 200 10748
+WARNING 2025-05-17 14:45:47,218 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:45:53,097 basehttp "GET /recipes/?search= HTTP/1.1" 200 10155
+WARNING 2025-05-17 14:45:53,128 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:45:58,082 basehttp "GET /recipes/?search=%D1%84%D1%8B%D0%B2&difficulty=&min_time=&max_time=&category= HTTP/1.1" 200 10161
+WARNING 2025-05-17 14:45:58,126 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:46:01,030 basehttp "GET /recipes/?search=&difficulty=&min_time=&max_time=&category= HTTP/1.1" 200 10155
+WARNING 2025-05-17 14:46:01,067 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:46:02,191 basehttp "GET /recipes/?search=&difficulty=easy&min_time=&max_time=&category= HTTP/1.1" 200 10155
+WARNING 2025-05-17 14:46:02,229 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:46:02,838 basehttp "GET /recipes/?search=&difficulty=medium&min_time=&max_time=&category= HTTP/1.1" 200 9225
+INFO 2025-05-17 14:46:04,106 basehttp "GET /recipes/?search=&difficulty=hard&min_time=&max_time=&category= HTTP/1.1" 200 9225
+INFO 2025-05-17 14:46:05,230 basehttp "GET /recipes/?search=&difficulty=&min_time=&max_time=&category= HTTP/1.1" 200 10155
+WARNING 2025-05-17 14:46:05,266 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:46:08,319 basehttp "GET /recipes/?search=&difficulty=&min_time=2&max_time=&category= HTTP/1.1" 200 9226
+INFO 2025-05-17 14:46:11,588 basehttp "GET /recipes/?search=&difficulty=&min_time=&max_time=&category= HTTP/1.1" 200 10155
+WARNING 2025-05-17 14:46:11,618 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:46:13,832 basehttp "GET /recipes/?search=&difficulty=&min_time=&max_time=&category=main HTTP/1.1" 200 10163
+WARNING 2025-05-17 14:46:13,864 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:46:15,089 basehttp "GET /recipes/?search=&difficulty=&min_time=&max_time=&category=dessert HTTP/1.1" 200 9233
+INFO 2025-05-17 14:47:20,920 autoreload Z:\ôûâ\users\views_frontend.py changed, reloading.
+INFO 2025-05-17 14:47:21,507 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:47:28,170 autoreload Z:\ôûâ\users\views_frontend.py changed, reloading.
+INFO 2025-05-17 14:47:28,813 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:48:43,285 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:48:44,988 basehttp "GET / HTTP/1.1" 200 10497
+WARNING 2025-05-17 14:48:45,038 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:48:45,040 basehttp "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-05-17 14:48:45,068 basehttp "GET /static/css/style.css HTTP/1.1" 200 3764
+WARNING 2025-05-17 14:48:45,121 log Not Found: /favicon.ico
+INFO 2025-05-17 14:48:45,121 basehttp - Broken pipe from ('127.0.0.1', 56033)
+INFO 2025-05-17 14:48:46,752 basehttp "GET /logout/ HTTP/1.1" 200 3086
+INFO 2025-05-17 14:48:46,794 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-05-17 14:48:46,803 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-05-17 14:48:46,804 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-05-17 14:48:46,806 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-05-17 14:48:46,820 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-05-17 14:48:51,491 basehttp "GET /logout/ HTTP/1.1" 200 3086
+INFO 2025-05-17 14:48:54,146 basehttp "GET / HTTP/1.1" 200 10497
+WARNING 2025-05-17 14:48:54,184 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:48:58,943 basehttp "GET /logout/ HTTP/1.1" 200 3086
+INFO 2025-05-17 14:49:07,141 basehttp "GET / HTTP/1.1" 200 10497
+WARNING 2025-05-17 14:49:07,172 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+WARNING 2025-05-17 14:49:07,205 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:49:11,783 basehttp "GET /logout/ HTTP/1.1" 200 3086
+INFO 2025-05-17 14:49:14,606 basehttp "GET /admin/ HTTP/1.1" 200 5905
+INFO 2025-05-17 14:49:14,648 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-05-17 14:49:14,648 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-05-17 14:49:14,661 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-05-17 14:49:14,662 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-05-17 14:49:14,662 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-05-17 14:49:16,977 basehttp "POST /admin/logout/ HTTP/1.1" 200 3832
+INFO 2025-05-17 14:49:28,080 basehttp "GET / HTTP/1.1" 200 9921
+WARNING 2025-05-17 14:49:28,131 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:49:29,464 basehttp "GET /register/ HTTP/1.1" 200 7410
+INFO 2025-05-17 14:49:45,371 basehttp "POST /register/ HTTP/1.1" 200 7728
+INFO 2025-05-17 14:49:52,158 basehttp "GET /register/ HTTP/1.1" 200 7410
+INFO 2025-05-17 14:54:17,718 basehttp "POST /register/ HTTP/1.1" 200 7728
+INFO 2025-05-17 14:54:17,791 basehttp "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2025-05-17 14:54:17,792 basehttp "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-05-17 14:54:21,068 basehttp "GET /register/ HTTP/1.1" 200 7410
+INFO 2025-05-17 14:54:21,339 basehttp "GET /login/ HTTP/1.1" 200 6094
+INFO 2025-05-17 14:54:30,719 basehttp "POST /login/ HTTP/1.1" 200 6409
+INFO 2025-05-17 14:54:36,611 basehttp "POST /login/ HTTP/1.1" 200 6409
+INFO 2025-05-17 14:56:15,668 autoreload Z:\ôûâ\users\views_frontend.py changed, reloading.
+INFO 2025-05-17 14:56:16,265 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:56:25,200 autoreload Z:\ôûâ\users\views_frontend.py changed, reloading.
+INFO 2025-05-17 14:56:25,809 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:56:59,095 autoreload Z:\ôûâ\users\views_frontend.py changed, reloading.
+INFO 2025-05-17 14:56:59,713 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:58:12,215 autoreload Z:\ôûâ\users\models.py changed, reloading.
+INFO 2025-05-17 14:58:12,758 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:58:18,411 autoreload Z:\ôûâ\users\models.py changed, reloading.
+INFO 2025-05-17 14:58:19,065 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:58:23,339 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 14:58:28,183 basehttp "GET / HTTP/1.1" 200 9921
+INFO 2025-05-17 14:58:28,219 basehttp "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2025-05-17 14:58:28,244 basehttp "GET /static/css/style.css HTTP/1.1" 200 4405
+WARNING 2025-05-17 14:58:28,249 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 14:58:30,423 basehttp "GET /register/ HTTP/1.1" 200 6936
+ERROR 2025-05-17 14:59:06,979 log Internal Server Error: /register/
+Traceback (most recent call last):
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: users_user.email
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "Z:\ôûâ\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\views\generic\edit.py", line 182, in post
+    return super().post(request, *args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\views\generic\edit.py", line 151, in post
+    return self.form_valid(form)
+           ~~~~~~~~~~~~~~~^^^^^^
+  File "Z:\ôûâ\users\views_frontend.py", line 110, in form_valid
+    response = super().form_valid(form)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\views\generic\edit.py", line 133, in form_valid
+    self.object = form.save()
+                  ~~~~~~~~~^^
+  File "Z:\ôûâ\users\forms.py", line 19, in save
+    user.save()
+    ~~~~~~~~~^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 65, in save
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\models\query.py", line 1864, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "Z:\ôûâ\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: users_user.email
+ERROR 2025-05-17 14:59:06,987 basehttp "POST /register/ HTTP/1.1" 500 188075
+INFO 2025-05-17 15:00:47,512 autoreload Z:\ôûâ\users\forms.py changed, reloading.
+INFO 2025-05-17 15:00:48,221 autoreload Watching for file changes with StatReloader
+INFO 2025-05-17 15:01:26,153 basehttp "GET / HTTP/1.1" 200 9921
+INFO 2025-05-17 15:01:26,220 basehttp "GET /static/css/style.css HTTP/1.1" 304 0
+WARNING 2025-05-17 15:01:26,224 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+WARNING 2025-05-17 15:01:26,329 log Not Found: /favicon.ico
+INFO 2025-05-17 15:01:26,330 basehttp - Broken pipe from ('127.0.0.1', 56564)
+INFO 2025-05-17 15:01:27,970 basehttp "GET /register/ HTTP/1.1" 200 6936
+INFO 2025-05-17 15:01:44,738 basehttp "POST /register/ HTTP/1.1" 302 0
+INFO 2025-05-17 15:01:44,750 basehttp "GET / HTTP/1.1" 200 10797
+WARNING 2025-05-17 15:01:44,794 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 15:01:48,186 basehttp "GET /logout/ HTTP/1.1" 200 3086
+INFO 2025-05-17 15:01:48,221 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-05-17 15:01:48,271 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-05-17 15:01:48,271 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-05-17 15:01:48,271 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-05-17 15:01:48,277 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-05-17 15:01:58,652 basehttp "GET / HTTP/1.1" 200 10504
+INFO 2025-05-17 15:01:58,703 basehttp "GET /static/css/style.css HTTP/1.1" 304 0
+WARNING 2025-05-17 15:01:58,707 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 15:02:01,226 basehttp "GET / HTTP/1.1" 200 10504
+WARNING 2025-05-17 15:02:01,252 basehttp "GET /static/img/default-recipe.jpg HTTP/1.1" 404 1993
+INFO 2025-05-17 15:02:03,678 basehttp "GET /logout/ HTTP/1.1" 200 3086
+INFO 2025-05-17 15:02:08,119 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-05-17 15:02:08,163 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3951
+INFO 2025-05-17 15:02:08,188 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-05-17 15:02:08,189 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-05-17 15:02:08,196 basehttp "GET /static/admin/css/login.css HTTP/1.1" 200 951
+WARNING 2025-05-17 15:03:18,226 log Method Not Allowed: /api/users/token/
+WARNING 2025-05-17 15:03:18,227 basehttp "GET /api/users/token/ HTTP/1.1" 405 7653
+INFO 2025-05-17 15:03:18,280 basehttp "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+INFO 2025-05-17 15:03:18,280 basehttp "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+INFO 2025-05-17 15:03:18,283 basehttp "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2025-05-17 15:03:18,286 basehttp "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+INFO 2025-05-17 15:03:18,299 basehttp "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+INFO 2025-05-17 15:03:18,300 basehttp "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+INFO 2025-05-17 15:03:18,306 basehttp "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+INFO 2025-05-17 15:03:18,312 basehttp "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+INFO 2025-05-17 15:03:18,313 basehttp "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+INFO 2025-05-17 15:03:18,316 basehttp "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2025-05-17 15:03:18,334 basehttp "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+INFO 2025-05-17 15:03:18,335 basehttp "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
